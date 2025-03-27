@@ -1,0 +1,46 @@
+
+################### Holding registers ####################
+record(ai, "$(P):$(R):IN0_RB")
+{
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT) 0 $(TIMEOUT=1000))INT16")
+    field(DESC, "Bit field register status input")
+    field(SCAN, "I/O Intr")
+}
+record(ai, "$(P):$(R):IN1_RB")
+{
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT) 1 $(TIMEOUT=1000))INT16")
+    field(DESC, "Bit field register status input")
+    field(SCAN, "I/O Intr")
+}
+record(ai, "$(P):$(R):IN2_RB")
+{
+    field(DESC, "STATUS0_RB")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT) 4 $(TIMEOUT=1000))INT16")
+    field(DESC, "Bit field register status input")
+    field(SCAN, "I/O Intr")
+}
+record(ai, "$(P):$(R):OUT0_RB")
+{
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT) 2 $(TIMEOUT=1000))INT16")
+    field(DESC, "Bit field register status ouput")
+    field(SCAN, "I/O Intr")
+}
+record(ai, "$(P):$(R):OUT1_RB")
+{
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT) 3 $(TIMEOUT=1000))INT16")
+    field(DESC, "Bit field register status ouput")
+    field(SCAN, "I/O Intr")
+}
+record(ai, "$(P):$(R):OUT2_RB")
+{
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT) 5 $(TIMEOUT=1000))INT16")
+    field(DESC, "Bit field register status ouput")
+    field(SCAN, "I/O Intr")
+}
+
