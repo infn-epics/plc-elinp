@@ -1,0 +1,7 @@
+epicsEnvSet("IOC","plceli")
+epicsEnvSet("TOP","../../")
+epicsEnvSet("EPICS_BASE","/epics/epics-base")
+epicsEnvSet("SUPPORT","/epics/support")
+epicsEnvSet("ASYN","/epics/support/asyn")
+epicsEnvSet("MODBUS","/epics/support/modbus")
+epicsEnvSet("STREAMDEVICE","/epics/support/StreamDevice")
