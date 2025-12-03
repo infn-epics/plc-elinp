@@ -1,46 +1,1031 @@
 
-################### Holding registers ####################
-record(ai, "$(P):$(R):IN0_RB")
+################### Holding registers - Raw Register Access ####################
+# record(ai, "$(P):$(R):IN0_RB")
+# {
+#     field(DTYP, "asynUInt32Digital")
+#     field(INP,  "@asynMask($(PORT) 0 0xFFFF $(TIMEOUT=1000))UINT16")
+#     field(DESC, "Input Register 0")
+#     field(SCAN, "I/O Intr")
+# }
+
+# record(ai, "$(P):$(R):IN1_RB")
+# {
+#     field(DTYP, "asynUInt32Digital")
+#     field(INP,  "@asynMask($(PORT) 1 0xFFFF $(TIMEOUT=1000))UINT16")
+#     field(DESC, "Input Register 1")
+#     field(SCAN, "I/O Intr")
+# }
+
+# record(ai, "$(P):$(R):IN4_RB")
+# {
+#     field(DTYP, "asynUInt32Digital")
+#     field(INP,  "@asynMask($(PORT) 4 0xFFFF $(TIMEOUT=1000))UINT16")
+#     field(DESC, "Input Register 4")
+#     field(SCAN, "I/O Intr")
+# }
+
+# record(ai, "$(P):$(R):OUT2_RB")
+# {
+#     field(DTYP, "asynUInt32Digital")
+#     field(INP,  "@asynMask($(PORT) 2 0xFFFF $(TIMEOUT=1000))UINT16")
+#     field(DESC, "Output Register 2")
+#     field(SCAN, "I/O Intr")
+# }
+
+# record(ai, "$(P):$(R):OUT3_RB")
+# {
+#     field(DTYP, "asynUInt32Digital")
+#     field(INP,  "@asynMask($(PORT) 3 0xFFFF $(TIMEOUT=1000))UINT16")
+#     field(DESC, "Output Register 3")
+#     field(SCAN, "I/O Intr")
+# }
+
+# record(ai, "$(P):$(R):OUT5_RB")
+# {
+#     field(DTYP, "asynUInt32Digital")
+#     field(INP,  "@asynMask($(PORT) 5 0xFFFF $(TIMEOUT=1000))UINT16")
+#     field(DESC, "Output Register 5")
+#     field(SCAN, "I/O Intr")
+# }
+
+################### Input Register 0 - Thermal Switches ####################
+record(bi, "$(P):LEL-MAG-SOL01:COIL01-TS")
 {
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn($(PORT) 0 $(TIMEOUT=1000))INT16")
-    field(DESC, "Bit field register status input")
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x1 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
 }
-record(ai, "$(P):$(R):IN1_RB")
+
+record(bi, "$(P):LEL-MAG-SOL01:COIL02-TS")
 {
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn($(PORT) 1 $(TIMEOUT=1000))INT16")
-    field(DESC, "Bit field register status input")
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x2 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
 }
-record(ai, "$(P):$(R):IN2_RB")
+
+record(bi, "$(P):LEL-MAG-HCOR01-TS")
 {
-    field(DESC, "STATUS0_RB")
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn($(PORT) 4 $(TIMEOUT=1000))INT16")
-    field(DESC, "Bit field register status input")
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x4 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
 }
-record(ai, "$(P):$(R):OUT0_RB")
+
+record(bi, "$(P):LEL-MAG-VCOR01-TS")
 {
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn($(PORT) 2 $(TIMEOUT=1000))INT16")
-    field(DESC, "Bit field register status ouput")
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x8 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
 }
-record(ai, "$(P):$(R):OUT1_RB")
+
+record(bi, "$(P):M1-SCU-6")
 {
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn($(PORT) 3 $(TIMEOUT=1000))INT16")
-    field(DESC, "Bit field register status ouput")
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x10 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
 }
-record(ai, "$(P):$(R):OUT2_RB")
+
+record(bi, "$(P):M1-SCU-7")
 {
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn($(PORT) 5 $(TIMEOUT=1000))INT16")
-    field(DESC, "Bit field register status ouput")
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x20 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bi, "$(P):LEL-MAG-HCOR06-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x40 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-VCOR06-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x80 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-QUAD01-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x100 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-QUAD02-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x200 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-QUAD03-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x400 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-HCOR07-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x800 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-VCOR07-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x1000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-DIP01-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x2000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):M4-SCU-1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x4000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bi, "$(P):M4A-SCU-8")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 0 0x8000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+################### Input Register 1 - More Thermal Switches ####################
+record(bi, "$(P):LEL-MAG-HCOR02-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x1 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-VCOR02-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x2 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-HCOR03-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x40 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-VCOR03-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x80 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-HCOR04-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x100 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-VCOR04-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x200 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-HCOR05-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x400 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-VCOR05-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x800 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):M2-SCU-2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x1000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bi, "$(P):M2-SCU-3")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x2000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bi, "$(P):M2-SCU-4")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x4000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bi, "$(P):M2-SCU-5")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 1 0x8000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+################### Input Register 4 - SOL02 Coils ####################
+record(bi, "$(P):LEL-MAG-HCOR04A-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x1 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-VCOR04A-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x2 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL01-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x4 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL02-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x8 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL03-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x10 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL04-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x20 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL05-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x40 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL06-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x80 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL07-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x100 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL08-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x200 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL09-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x400 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL10-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x800 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL11-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x1000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+record(bi, "$(P):LEL-MAG-SOL02:COIL12-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(INP,  "@asynMask($(PORT) 4 0x2000 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "OK")
+    field(ONAM, "FAULT")
+    field(ZSV,  "NO_ALARM")
+    field(OSV,  "MAJOR")
+}
+
+################### Output Register 2 - Power Supply Controls ####################
+record(bo, "$(P):LEL-MAG-SPSU01:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 2 0x1 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU01:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 2 0x2 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU02:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 2 0x4 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU02:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 2 0x8 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-CPSU01")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 2 0x10 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-CPSU02")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 2 0x20 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-CPSU03")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 2 0x40 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-DMP-BDUMP01-TS")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 2 0x80 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+################### Output Register 3 - More Power Supply Controls ####################
+record(bo, "$(P):LEL-MAG-SPSU02:EXT1-3")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 3 0x1 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU02:EXT2-3")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 3 0x2 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU03:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 3 0x4 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU03:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 3 0x8 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU04:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 3 0x10 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU04:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 3 0x20 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU05:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 3 0x40 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-SPSU05:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 3 0x80 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+################### Output Register 5 - Quadrupole and Dipole Controls ####################
+record(bo, "$(P):LEL-MAG-QPSU01:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 5 0x1 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-QPSU01:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 5 0x2 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-QPSU02:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 5 0x4 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-QPSU02:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 5 0x8 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-QPSU03:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 5 0x10 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-QPSU03:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 5 0x20 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-DPSU01:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 5 0x40 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+record(bo, "$(P):LEL-MAG-DPSU01:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 5 0x80 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+}
+
+################### Digital Command Registers (7-9) ####################
+record(bo, "$(P):M1SPSU01:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x2 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M1SPSU01:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x4 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M1SPSU01:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x8 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M1SPSU02:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x10 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M1SPSU02:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x20 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M1SPSU02:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x40 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):SPSU01:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x80 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):SPSU01:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x100 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):SPSU01:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x200 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU02:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x400 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU02:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x800 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU02:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x1000 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU03:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x2000 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU03:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x4000 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU03:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 7 0x8000 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU04:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x2 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU04:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x4 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU04:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x8 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU05:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x10 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU05:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x20 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):M2SPSU05:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x40 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):SPSU02:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x80 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):SPSU02:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x100 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):SPSU02:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x200 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):QPSU01:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x400 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):QPSU01:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x800 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):QPSU01:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x1000 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):QPSU02:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x2000 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):QPSU02:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x4000 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):QPSU02:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 8 0x8000 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):QPSU03:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x2 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):QPSU03:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x4 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):QPSU03:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x8 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):DPSU01:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x10 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):DPSU01:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x20 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):DPSU01:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x40 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):CPSU03:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x80 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):CPSU03:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x100 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):CPSU03:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x200 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):BDUMP01:ON-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x400 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):BDUMP01:OFF-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x800 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
+}
+
+record(bo, "$(P):BDUMP01:RESET-CMD")
+{
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,  "@asynMask($(PORT) 9 0x1000 $(TIMEOUT=1000))UINT16")
+    field(ZNAM, "IDLE")
+    field(ONAM, "REQUEST")
 }
 

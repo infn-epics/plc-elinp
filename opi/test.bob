@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <width>160</width>
+  <height>210</height>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>plcelimag.bob</file>
+        <macros>
+          <P>LEL</P>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>PLC MAG</text>
+    <x>30</x>
+    <y>10</y>
+    <height>80</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>plcelivac.bob</file>
+        <macros>
+          <P>LEL</P>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>PLC VAC</text>
+    <x>30</x>
+    <y>120</y>
+    <height>80</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>
