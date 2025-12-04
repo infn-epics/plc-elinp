@@ -12,7 +12,7 @@ modbusInterposeConfig("PLCELI_IP",0,0,0)
 
 drvModbusAsynConfigure("PLCELI_IO", "PLCELI_IP", 1,    3, 0, 10, 0, 1000, "PLCEL")
 
-dbLoadRecords("$(TOP)/db/plcelivac.template","P=LEL,R=PLCMAG,PORT=PLCELI_IO")
+dbLoadRecords("$(TOP)/db/plcelivac.template","P=LEL:PLC:VAC,R=PLCMAG,PORT=PLCELI_IO")
 
 iocInit()
 
