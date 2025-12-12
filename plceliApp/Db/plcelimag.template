@@ -632,32 +632,11 @@ record(bo, "$(P):LEL-DMP-BDUMP01-TS")
 }
 
 ################### Output Register 3 - More Power Supply Controls ####################
-record(bi, "$(P):LEL-MAG-SPSU02:EXT1")
-{
-    field(DTYP, "asynUInt32Digital")
-    field(INP,  "@asynMask($(PORT) 3 0x1 $(TIMEOUT=1000))UINT16")
-    field(SCAN, "I/O Intr")
-    field(ZNAM, "FAULT")
-    field(ONAM, "OK")
-    field(ZSV,  "MAJOR")
-    field(OSV,  "NO_ALARM")
-}
-
-record(bi, "$(P):LEL-MAG-SPSU02:EXT2")
-{
-    field(DTYP, "asynUInt32Digital")
-    field(INP,  "@asynMask($(PORT) 3 0x2 $(TIMEOUT=1000))UINT16")
-    field(SCAN, "I/O Intr")
-    field(ZNAM, "FAULT")
-    field(ONAM, "OK")
-    field(ZSV,  "MAJOR")
-    field(OSV,  "NO_ALARM")
-}
 
 record(bi, "$(P):LEL-MAG-SPSU03:EXT1")
 {
     field(DTYP, "asynUInt32Digital")
-    field(INP,  "@asynMask($(PORT) 3 0x4 $(TIMEOUT=1000))UINT16")
+    field(INP,  "@asynMask($(PORT) 3 0x0 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
     field(ZNAM, "FAULT")
     field(ONAM, "OK")
@@ -668,7 +647,7 @@ record(bi, "$(P):LEL-MAG-SPSU03:EXT1")
 record(bi, "$(P):LEL-MAG-SPSU03:EXT2")
 {
     field(DTYP, "asynUInt32Digital")
-    field(INP,  "@asynMask($(PORT) 3 0x8 $(TIMEOUT=1000))UINT16")
+    field(INP,  "@asynMask($(PORT) 3 0x2 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
     field(ZNAM, "FAULT")
     field(ONAM, "OK")
@@ -679,7 +658,7 @@ record(bi, "$(P):LEL-MAG-SPSU03:EXT2")
 record(bi, "$(P):LEL-MAG-SPSU04:EXT1")
 {
     field(DTYP, "asynUInt32Digital")
-    field(INP,  "@asynMask($(PORT) 3 0x10 $(TIMEOUT=1000))UINT16")
+    field(INP,  "@asynMask($(PORT) 3 0x4 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
     field(ZNAM, "FAULT")
     field(ONAM, "OK")
@@ -690,7 +669,7 @@ record(bi, "$(P):LEL-MAG-SPSU04:EXT1")
 record(bi, "$(P):LEL-MAG-SPSU04:EXT2")
 {
     field(DTYP, "asynUInt32Digital")
-    field(INP,  "@asynMask($(PORT) 3 0x20 $(TIMEOUT=1000))UINT16")
+    field(INP,  "@asynMask($(PORT) 3 0x8 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
     field(ZNAM, "FAULT")
     field(ONAM, "OK")
@@ -701,7 +680,7 @@ record(bi, "$(P):LEL-MAG-SPSU04:EXT2")
 record(bi, "$(P):LEL-MAG-SPSU05:EXT1")
 {
     field(DTYP, "asynUInt32Digital")
-    field(INP,  "@asynMask($(PORT) 3 0x40 $(TIMEOUT=1000))UINT16")
+    field(INP,  "@asynMask($(PORT) 3 0x10 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
     field(ZNAM, "FAULT")
     field(ONAM, "OK")
@@ -712,7 +691,29 @@ record(bi, "$(P):LEL-MAG-SPSU05:EXT1")
 record(bi, "$(P):LEL-MAG-SPSU05:EXT2")
 {
     field(DTYP, "asynUInt32Digital")
-    field(INP,  "@asynMask($(PORT) 3 0x80 $(TIMEOUT=1000))UINT16")
+    field(INP,  "@asynMask($(PORT) 3 0x20 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "FAULT")
+    field(ONAM, "OK")
+    field(ZSV,  "MAJOR")
+    field(OSV,  "NO_ALARM")
+}
+
+record(bi, "$(P):LEL-MAG-SPSU06:EXT1")
+{
+    field(DTYP, "asynUInt32Digital")
+    ##########field(INP,  "@asynMask($(PORT) 3 0x40 $(TIMEOUT=1000))UINT16")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "FAULT")
+    field(ONAM, "OK")
+    field(ZSV,  "MAJOR")
+    field(OSV,  "NO_ALARM")
+}
+
+record(bi, "$(P):LEL-MAG-SPSU06:EXT2")
+{
+    field(DTYP, "asynUInt32Digital")
+    ##########field(INP,  "@asynMask($(PORT) 3 0x80 $(TIMEOUT=1000))UINT16")
     field(SCAN, "I/O Intr")
     field(ZNAM, "FAULT")
     field(ONAM, "OK")
